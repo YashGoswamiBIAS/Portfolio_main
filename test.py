@@ -1,6 +1,3 @@
-from flask import Flask
-app = Flask(__name__)
-
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
@@ -12,13 +9,4 @@ firebase_admin.initialize_app(cred,{
 })
 
 ref = db.reference("/")
-
-
-
-@app.route("/api")
-def api():
-    return ref.get()
-
-
-if __name__ == "__main__":
-    app.run()
+print(ref.get())
