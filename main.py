@@ -21,6 +21,9 @@ ref = db.reference("/")
 @app.route("/api")
 @cross_origin()
 def api():
+    fil = open("Hello.txt","a")
+    fil.write("Hello")
+    fil.close()
     return ref.get()
 
 
