@@ -1,5 +1,8 @@
 from flask import Flask
+from flask_cors import CORS, cross_origin
 app = Flask(__name__)
+
+CORS(app)
 
 import firebase_admin
 from firebase_admin import credentials
@@ -16,6 +19,7 @@ ref = db.reference("/")
 
 
 @app.route("/api")
+@cross_origin
 def api():
     return ref.get()
 
