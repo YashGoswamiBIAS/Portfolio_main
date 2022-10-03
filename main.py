@@ -19,7 +19,7 @@ ref = db.reference("/")
 
 
 @app.route("/api")
-@cross_origin
+@cross_origin()
 def api():
     return ref.get()
 
